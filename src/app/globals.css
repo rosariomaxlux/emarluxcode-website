@@ -1,26 +1,66 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ===== EMAR LuxCode - Theme Configuration ===== */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #080E1A;
+  --color-surface: #0D1829;
+  --color-surface-light: #111F36;
+  --color-primary: #00E89D;
+  --color-secondary: #0099FF;
+  --color-accent: #00C4FF;
+  --color-text: #E8ECF2;
+  --color-text-secondary: #8896AB;
+  --color-text-muted: #4A5568;
+  --color-border: rgba(0, 232, 157, 0.1);
+  --color-border-light: rgba(0, 232, 157, 0.05);
+  --font-sans: 'Outfit', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ===== Base Styles ===== */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+/* ===== Scrollbar Custom ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-muted);
+  border-radius: 3px;
+}
+
+/* ===== Selection Color ===== */
+::selection {
+  background: rgba(0, 232, 157, 0.2);
+  color: #FFFFFF;
+}
+
+/* ===== Gradient Utilities ===== */
+.gradient-text {
+  background: linear-gradient(135deg, #00E89D, #00C4FF, #0099FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  border: 1px solid transparent;
+  background-image: linear-gradient(var(--color-surface), var(--color-surface)),
+                    linear-gradient(135deg, #00E89D, #0099FF);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.glow-green {
+  box-shadow: 0 0 30px rgba(0, 232, 157, 0.15);
+}
+
+.glow-blue {
+  box-shadow: 0 0 30px rgba(0, 153, 255, 0.15);
 }
